@@ -41,12 +41,9 @@ resource "google_storage_bucket" "this" {
     }
 
     "condition" {
-      age = 365
+      age = 180
 
-      matches_storage_class = [
-        "MULTI_REGIONAL",
-        "REGIONAL",
-      ]
+      matches_storage_class = ["MULTI_REGIONAL"]
     }
   }
 
