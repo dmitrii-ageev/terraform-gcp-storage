@@ -9,7 +9,6 @@ Module Input Variables
 
 | Parameter         | Description                                 | Default        |
 | :--------         | :----------                                 | :------        |
-| `dependencies`    | A list of resources this module depends on  | `[]`           |
 | `name`            | The name of the bucket                      |  _mandatory_   |
 | `project`         | The name of the project                     |  _mandatory_   |
 | `labels`          | Labels to stick on the bucket               | `{}`           |
@@ -51,7 +50,6 @@ Outputs
 
 | Parameter      | Description                                                  |
 | :--------      | :----------                                                  |
-| `dependend_on` | A list of dependencies for a dependency chain                |
 | `name`         | The name of the bucket                                       |
 | `self_link`    | The URI of the created resource                              |
 | `url`          | The base URL of the bucket, in the format gs://<bucket-name> |

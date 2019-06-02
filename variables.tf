@@ -1,9 +1,3 @@
-variable "dependencies" {
-  description = "A list of resources this module depends on"
-  type        = "list"
-  default     = []
-}
-
 variable "name" {
   description = "The name of a bucket"
   type        = "string"
