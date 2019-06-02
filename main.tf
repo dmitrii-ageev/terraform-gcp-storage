@@ -1,5 +1,4 @@
 resource "google_storage_bucket" "this" {
-  depends_on = ["null_resource.dependency_getter"]
 
   name          = "${var.name}"
   project       = "${var.project}"
