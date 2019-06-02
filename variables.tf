@@ -49,3 +49,18 @@ variable "log_bucket" {
   description = "If set, all actions will be logged to the specified bucket"
   default     = ""
 }
+
+variable "move_to_nearline_in" {
+  description = "The number of days to keep files before moving them to NearLine"
+  default     = 180
+}
+
+variable "move_to_coldline_in" {
+  description = "The number of days to keep files before moving them to ColdLine"
+  default     = 365
+}
+
+variable "delete_after" {
+  description = "The number of days after which files to be deleted"
+  default     = 730
+}

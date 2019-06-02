@@ -25,37 +25,36 @@ resource "google_storage_bucket" "this" {
   }
 
   lifecycle_rule {
+    action {
+      type          = "SetStorageClass"
+      storage_class = "NEARLINE"
+    }
+
+    condition {
+      matches_storage_class = ["REGIONAL"]
+      age                   = "${var.move_to_nearline_in}"
+    }
+  }
+
+  lifecycle_rule {
+    action {
+      type          = "SetStorageClass"
+      storage_class = "COLDLINE"
+    }
+
+    condition {
+      matches_storage_class = ["NEARLINE"]
+      age                   = "${var.move_to_coldline_in}"
+    }
+  }
+
+  lifecycle_rule {
     "action" {
       type = "Delete"
     }
 
     "condition" {
-      age = 90
-    }
-  }
-
-  lifecycle_rule {
-    "action" {
-      type          = "SetStorageClass"
-      storage_class = "NEARLINE"
-    }
-
-    "condition" {
-      age = 180
-
-      matches_storage_class = ["MULTI_REGIONAL"]
-    }
-  }
-
-  lifecycle_rule {
-    "action" {
-      type          = "SetStorageClass"
-      storage_class = "COLDLINE"
-    }
-
-    "condition" {
-      age                   = 730
-      matches_storage_class = ["NEARLINE"]
+      age = "${var.delete_after}"
     }
   }
 }

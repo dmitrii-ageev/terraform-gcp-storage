@@ -18,17 +18,30 @@ Module Input Variables
 | `storage_class`   | Default storage class                       | MULTI_REGIONAL |
 | `versioning`      | Whether to enable versions support or not   | false          |
 | `encryption_key`  | The name of the encryption key to use       | `""`           |
-| `log_bucket`      | If set, all actions will be logged to the specified bucket | `""` |
+| `log_bucket`      | If set, all actions will be logged to the specified bucket          | `""` |
+| `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180  |
+| `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365  |
+| `delete_after`        | The number of days after which files to be deleted"             | 730  |
+
 
 Usage
 -----
 
 ```hcl
 module "storage" {
-  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.0"
+  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.2"
 
-  instance_name = "postgresql"
-  network = "${data.google_compute_network.my_network.name}"
+  name     = "terraform-storage-production"
+  project  = "${data.google_project.this.project_id}"
+  location = "us-east1"
+
+  labels = {
+    application = "terraform"
+    environment = "production"
+  }
+
+  storage_class  = "REGIONAL"
+  iam_member     = "domain:mydomain.com"
 }
 ```
 
@@ -36,10 +49,12 @@ module "storage" {
 Outputs
 =======
 
-| Parameter | Description | Default |
-| :-------- | :---------- | :------ |
-|  | |
-
+| Parameter      | Description                                                  |
+| :--------      | :----------                                                  |
+| `dependend_on` | A list of dependencies for a dependency chain                |
+| `name`         | The name of the bucket                                       |
+| `self_link`    | The URI of the created resource                              |
+| `url`          | The base URL of the bucket, in the format gs://<bucket-name> |
 
 
 Author
