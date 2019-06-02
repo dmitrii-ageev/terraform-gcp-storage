@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# Ignore IDE files
+.idea/
