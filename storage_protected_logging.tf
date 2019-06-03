@@ -1,4 +1,6 @@
-resource "google_storage_bucket" "this" {
+resource "google_storage_bucket" "protected_logging" {
+  count = "${local.create_protected_logging_bucket}"
+
   name          = "${var.name}"
   project       = "${var.project}"
   location      = "${var.location}"
@@ -12,12 +14,15 @@ resource "google_storage_bucket" "this" {
     enabled = "${var.versioning}"
   }
 
-  logging = "${var.log_bucket == "" ? local.logging_disabled : local.logging_enabled }"
+  logging {
+    log_bucket = "${var.log_bucket}"
+  }
 
   labels = "${var.labels}"
 
   lifecycle {
     create_before_destroy = true
+    prevent_destroy       = true
   }
 
   lifecycle_rule {

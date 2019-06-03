@@ -30,7 +30,7 @@ variable "storage_class" {
 }
 
 variable "versioning" {
-  description = "Whether to enable versioning or not"
+  description = "Whether enable versioning or not"
   default     = false
 }
 
@@ -42,6 +42,11 @@ variable "encryption_key" {
 variable "log_bucket" {
   description = "If set, all actions will be logged to the specified bucket"
   default     = ""
+}
+
+variable "prevent_destroy" {
+  description = "If set, the 'prevent_destroy' lifecycle flag will be set"
+  default     = false
 }
 
 variable "move_to_nearline_in" {

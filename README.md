@@ -2,7 +2,7 @@ GCP STORAGE TERRAFORM MODULE
 ============================
 
 A terraform module to create a Google Storage bucket and set it properties.
-
+https://github.com/SweetOps/terraform-google-storage-bucket/blob/master/main.tf
 
 Module Input Variables
 ----------------------
@@ -17,10 +17,11 @@ Module Input Variables
 | `storage_class`   | Default storage class                       | MULTI_REGIONAL |
 | `versioning`      | Whether to enable versions support or not   | false          |
 | `encryption_key`  | The name of the encryption key to use       | `""`           |
-| `log_bucket`      | If set, all actions will be logged to the specified bucket          | `""` |
-| `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180  |
-| `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365  |
-| `delete_after`        | The number of days after which files to be deleted"             | 730  |
+| `prevent_destroy` | If set the 'prevent_destroy' lifecycle flag will be set             | false |
+| `log_bucket`      | If set, all actions will be logged to the specified bucket          | `""`  |
+| `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180   |
+| `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365   |
+| `delete_after`        | The number of days after which files to be deleted"             | 730   |
 
 
 Usage
