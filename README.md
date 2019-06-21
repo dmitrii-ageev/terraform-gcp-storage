@@ -17,7 +17,6 @@ Module Input Variables
 | `storage_class`   | Default storage class                       | MULTI_REGIONAL |
 | `versioning`      | Whether to enable versions support or not   | false          |
 | `encryption_key`  | The name of the encryption key to use       | `""`           |
-| `prevent_destroy` | If set the 'prevent_destroy' lifecycle flag will be set             | false |
 | `log_bucket`      | If set, all actions will be logged to the specified bucket          | `""`  |
 | `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180   |
 | `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365   |
@@ -29,7 +28,7 @@ Usage
 
 ```hcl
 module "storage" {
-  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.2"
+  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.6"
 
   name     = "terraform-storage-production"
   project  = "${data.google_project.this.project_id}"
