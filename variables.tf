@@ -44,11 +44,6 @@ variable "log_bucket" {
   default     = ""
 }
 
-variable "prevent_destroy" {
-  description = "If set, the 'prevent_destroy' lifecycle flag will be set"
-  default     = false
-}
-
 variable "move_to_nearline_in" {
   description = "The number of days to keep files before moving them to NearLine"
   default     = 180

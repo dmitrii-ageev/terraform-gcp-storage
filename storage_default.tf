@@ -18,6 +18,7 @@ resource "google_storage_bucket" "default" {
 
   lifecycle {
     create_before_destroy = true
+    prevent_destroy       = true
   }
 
   lifecycle_rule {
