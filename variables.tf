@@ -14,6 +14,12 @@ variable "labels" {
   default     = {}
 }
 
+variable "iam_owner" {
+  description = "Service account that owns the bucket"
+  type        = "string"
+  default     = ""
+}
+
 variable "iam_member" {
   description = "Provide Admin access to this IAM member"
   default     = ""
