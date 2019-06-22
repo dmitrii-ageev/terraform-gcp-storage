@@ -22,6 +22,7 @@ variable "iam_owner" {
 
 variable "iam_member" {
   description = "Provide Admin access to this IAM member"
+  type        = string
   default     = ""
 }
 
@@ -47,7 +48,7 @@ variable "encryption_key" {
 
 variable "log_bucket" {
   description = "If set, all actions will be logged to the specified bucket"
-  default     = ""
+  default     = false
 }
 
 variable "move_to_nearline_in" {
