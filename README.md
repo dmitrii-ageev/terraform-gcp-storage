@@ -2,7 +2,7 @@ GCP STORAGE TERRAFORM MODULE
 ============================
 
 A terraform module to create a Google Storage bucket and set it properties.
-https://github.com/SweetOps/terraform-google-storage-bucket/blob/master/main.tf
+
 
 Module Input Variables
 ----------------------
