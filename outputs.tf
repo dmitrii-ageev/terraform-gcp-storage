@@ -12,3 +12,8 @@ output "self_link" {
   description = "The URI of the created resource."
   value       = "${local.bucket_self_link}"
 }
+
+output "owner" {
+  description = "The storage bucket owner email"
+  value       = "${local.iam_owner}"
+}
