@@ -27,6 +27,10 @@ Module Input Variables
 Usage
 -----
 
+*Note:*
+With Terraform versions prior to 0.11.14 use the module version 0.1.7.
+With Terraform version 0.12.0 and higher use module versions after 0.1.8.
+
 ```hcl
 module "storage" {
   source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.7"
