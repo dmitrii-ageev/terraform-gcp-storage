@@ -1,22 +1,22 @@
 variable "name" {
   description = "The name of a bucket"
-  type        = "string"
+  type        = string
 }
 
 variable "project" {
   description = "The name of a project"
-  type        = "string"
+  type        = string
 }
 
 variable "labels" {
   description = "Labels to set for the bucket"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
 variable "iam_owner" {
   description = "Service account that owns the bucket"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
@@ -64,3 +64,4 @@ variable "delete_after" {
   description = "The number of days after which files to be deleted"
   default     = 730
 }
+
