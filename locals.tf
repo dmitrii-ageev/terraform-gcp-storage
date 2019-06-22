@@ -13,6 +13,4 @@ locals {
   bucket_self_link = "${join("", concat(
                                      google_storage_bucket.default.*.self_link,
                                      google_storage_bucket.logging.*.self_link) )}"
-
-  iam_owner = "${var.iam_owner == "" ? data.google_client_openid_userinfo.owner.email : "user:" + var.iam_owner}"
 }

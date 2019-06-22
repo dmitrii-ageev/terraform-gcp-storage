@@ -1,8 +1,9 @@
 // Reset existing bucket permissions
 resource "google_storage_bucket_iam_binding" "this" {
+  count   = "${var.iam_owner == "" ? 0 : 1}"
   bucket  = "${local.bucket_name}"
   role    = "roles/storage.legacyBucketOwner"
-  members = ["${local.iam_owner}"]
+  members = ["${var.iam_owner}"]
 }
 
 // Grant the storage admin role for the iam_member
