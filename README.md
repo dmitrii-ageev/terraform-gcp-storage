@@ -7,16 +7,17 @@ https://github.com/SweetOps/terraform-google-storage-bucket/blob/master/main.tf
 Module Input Variables
 ----------------------
 
-| Parameter         | Description                                 | Default        |
-| :--------         | :----------                                 | :------        |
-| `name`            | The name of the bucket                      |  _mandatory_   |
-| `project`         | The name of the project                     |  _mandatory_   |
-| `labels`          | Labels to stick on the bucket               | `{}`           |
-| `iam_member`      | Provide Admin access to this IAM member     | `""`           |
-| `location`        | The location where a bucket will be created | us-central1    |
-| `storage_class`   | Default storage class                       | MULTI_REGIONAL |
-| `versioning`      | Whether to enable versions support or not   | false          |
-| `encryption_key`  | The name of the encryption key to use       | `""`           |
+| Parameter         | Description                                   | Default        |
+| :--------         | :----------                                   | :------        |
+| `name`            | The name of the bucket                        |  _mandatory_   |
+| `project`         | The name of the project                       |  _mandatory_   |
+| `labels`          | Labels to stick on the bucket                 | `{}`           |
+| `iam_owner`       | Provide Owner-level access to this IAM member | `""`           |
+| `iam_member`      | Provide Admin access to this IAM member       | `""`           |
+| `location`        | The location where a bucket will be created   | us-central1    |
+| `storage_class`   | Default storage class                         | MULTI_REGIONAL |
+| `versioning`      | Whether to enable versions support or not     | false          |
+| `encryption_key`  | The name of the encryption key to use         | `""`           |
 | `log_bucket`      | If set, all actions will be logged to the specified bucket          | `""`  |
 | `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180   |
 | `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365   |
@@ -28,7 +29,7 @@ Usage
 
 ```hcl
 module "storage" {
-  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.6"
+  source = "git::git@github.com:dmitrii-ageev/terraform-gcp-storage?ref=0.1.7"
 
   name     = "terraform-storage-production"
   project  = "${data.google_project.this.project_id}"
