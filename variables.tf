@@ -46,9 +46,10 @@ variable "encryption_key" {
   default     = ""
 }
 
-variable "log_bucket" {
-  description = "If set, all actions will be logged to the specified bucket"
-  default     = false
+variable "log_buckets" {
+  description = "If set, all actions will be logged to a designated bucket"
+  type        = list(string)
+  default     = []
 }
 
 variable "move_to_nearline_in" {
