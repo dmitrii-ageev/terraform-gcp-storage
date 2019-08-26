@@ -18,9 +18,6 @@ resource "google_storage_bucket" "this" {
       log_object_prefix = var.name
     }
   }
-  lifecycle {
-    prevent_destroy       = var.prevent_destroy
-  }
   lifecycle_rule {
     action {
       type          = "SetStorageClass"
