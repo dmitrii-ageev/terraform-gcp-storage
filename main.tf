@@ -19,8 +19,7 @@ resource "google_storage_bucket" "this" {
     }
   }
   lifecycle {
-    create_before_destroy = true
-    prevent_destroy       = true
+    prevent_destroy       = var.prevent_destroy
   }
   lifecycle_rule {
     action {

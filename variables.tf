@@ -67,3 +67,7 @@ variable "delete_after" {
   default     = 730
 }
 
+variable "prevent_destroy" {
+  description = "Whether to set 'prevent destroy' flag"
+  default     = false
+}

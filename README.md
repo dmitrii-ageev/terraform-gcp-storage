@@ -22,6 +22,7 @@ Module Input Variables
 | `move_to_nearline_in` | The number of days to keep files before moving them to NearLine | 180 |
 | `move_to_coldline_in` | The number of days to keep files before moving them to ColdLine | 365 |
 | `delete_after` | The number of days after which files to be deleted" | 730 |
+| `prevent_destroy` | Cause Terraform to reject with an error any plan that would destroy the bucket | false |
 
 
 Usage
