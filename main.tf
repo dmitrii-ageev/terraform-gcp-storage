@@ -5,8 +5,12 @@ resource "google_storage_bucket" "this" {
   storage_class = var.storage_class
   labels        = var.labels
 
-  encryption {
-    default_kms_key_name = var.encryption_key
+  // Skip the encryption block if the key is empty
+  dynamic "encryption" {
+    for_each = compact([var.encryption_key])
+    content {
+      default_kms_key_name = var.encryption_key
+    }
   }
   versioning {
     enabled = var.versioning
